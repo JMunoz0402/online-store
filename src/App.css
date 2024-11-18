@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+.content{
+  min-height: calc(100vh - 109px);
+  display: flex;
+}
+
+body{
+  background-color: lightgray;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -1,0 +1,6 @@
+/* Footer.css */
+.footer {
+    width: 100%;
+    min-height: auto;
+    height: calc(100wh - 109px);
+}
