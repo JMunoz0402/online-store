@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function QuantityPicker(){
 
-    const [quantity, setQuantity] = UseState(1);
+    const [quantity, setQuantity] = useState(1);
 
     function increase(){
         const val = quantity + 1;

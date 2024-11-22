@@ -8,3 +8,7 @@
 
     background-color: #e5e8e9;
 }
+
+.content .filters button {
+    margin-right: 6px;
+}

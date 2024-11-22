@@ -69,8 +69,25 @@ var catalog = [
         "price": 18.49,
         "image": "/images/cashews.jpg",
         "_id": "9283"
+    },
+    {
+        "title": "Eggs",
+        "category": "Dairy",
+        "price": 7.49,
+        "image": "/images/eggs.jpeg",
+        "_id": "595959"
+    },
+    {
+        "title": "Walnut",
+        "category": "Nut",
+        "price": 1.40,
+        "image": "/images/walnut.jpeg",
+        "_id": "89765"
     }
+
 ];
+
+var categories = ["Fruits", "Nut", "Dairy", "Vegetable"];
 
 class DataService {
 
@@ -78,6 +95,16 @@ class DataService {
         // todo: call the server to retrieve products
 
         // hardcode values
+        return catalog;
+    }
+
+    getCategories() {
+        // todo: call the server
+
+        // hardcoded values
+        return categories;
     }
 
 }
+
+export default new DataService();

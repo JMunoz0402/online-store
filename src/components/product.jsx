@@ -4,8 +4,8 @@ import QuantityPicker from "./quantityPicker";
 function Product(props) {
     return(
         <div className="product">
+            <img src={props.data.image} alt=""/>
             <span>ID: {props.data._id}</span>
-            <img src="{props.data.image}" alt=""/>
             <h3>{props.data.title}</h3>
             
             <div className="prices">
