@@ -11,7 +11,7 @@ function Navbar() {
                     <a href="">Menu</a>
                 </div>
             </nav>
-            <nav className="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <nav className="navbar  navbar-expand-lg " data-bs-theme="dark">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">Online Store</a>
                     <button
