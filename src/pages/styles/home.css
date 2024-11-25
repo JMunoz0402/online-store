@@ -1,0 +1,28 @@
+
+
+.home.page {
+    display: flex; /* Enables a flex layout */
+    align-items: center; /* Vertically aligns content */
+    justify-content: space-between; /* Creates space between image and text */
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home.page h1 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin: 0;
+  }
+  
+  .home.page .main-img {
+    width: 40%; /* Adjusts image size */
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  

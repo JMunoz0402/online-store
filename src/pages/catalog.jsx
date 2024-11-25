@@ -24,7 +24,7 @@ function Catalog() {
     if(!catalog.length) return "Loading...";
     
     return(
-        <div className='content'>
+        <div className='content page'>
             <div>
                 <h1>This is where the catalog it's going to be.</h1>
             </div>

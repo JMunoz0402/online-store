@@ -80,7 +80,7 @@ var catalog = [
     {
         "title": "Walnut",
         "category": "Nut",
-        "price": 1.40,
+        "price": 1.47,
         "image": "/images/walnut.jpeg",
         "_id": "89765"
     }
