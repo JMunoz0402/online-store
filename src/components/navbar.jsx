@@ -1,20 +1,26 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import GlobalContext from "../context/globalContext";
 import "./styles/navbar.css";
-import { Link } from 'react-router-dom';
 
 function Navbar() {
+    const { user } = useContext(GlobalContext);
+
     return (
         <div>
             <nav>
                 <div className="navbar-menu">
-                    <a href="">Log In</a>
-                    <a href="">Search</a>
-                    <a href="">Subscribe</a>
-                    <a href="">Menu</a>
+                    <a href="#">Log In</a>
+                    <a href="#">Search</a>
+                    <a href="#">Subscribe</a>
+                    <a href="#">Menu</a>
                 </div>
             </nav>
             <nav className="navbar navbar-expand-lg" data-bs-theme="dark">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">Online Store</Link>
+                    <Link className="navbar-brand" to="/">
+                        Online Store
+                    </Link>
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -29,21 +35,38 @@ function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/home">Home</Link>
+                                <Link className="nav-link active" aria-current="page" to="/home">
+                                    Home
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/catalog">Catalog</Link>
+                                <Link className="nav-link active" aria-current="page" to="/catalog">
+                                    Catalog
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/admin">Admin</Link>
+                                <Link className="nav-link active" aria-current="page" to="/admin">
+                                    Admin
+                                </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/about">About</Link>
+                                <Link className="nav-link active" aria-current="page" to="/Shopping List">
+                                    Shopping List
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link active" aria-current="page" to="/about">
+                                    About
+                                </Link>
                             </li>
                         </ul>
                     </div>
-                    
-                    <Link className="btn btn-primary cart-button" aria-current="page" to="/cart">Cart</Link>
+                    <div className="btn btn-outline-light me-3">
+                        {user.id} - {user.name}
+                    </div>
+                    <Link className="btn btn-primary cart-button" to="/cart">
+                        Cart
+                    </Link>
                 </div>
             </nav>
         </div>
@@ -51,4 +74,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

@@ -1,7 +1,10 @@
 import "./styles/product.css";
 import QuantityPicker from "./quantityPicker";
+import { useContext } from "react";
+import GlobalContext from "../context/globalContext";
 
 function Product(props) {
+    const context = useContext(GlobalContext)
     return(
         <div className="product">
             <img src={props.data.image} alt=""/>
@@ -15,7 +18,7 @@ function Product(props) {
             
             <div className="parent">
                 <QuantityPicker></QuantityPicker>
-                <button className="btn btn-sm btn-success">Add
+                <button className="btn btn-sm btn-success" onClick={context.addToCart}>Add
                 </button>
             </div>  
         </div>

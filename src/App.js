@@ -6,14 +6,18 @@ import About from './pages/about.jsx';
 import Admin from './pages/admin.jsx';
 import Home from './pages/home.jsx';
 import Cart from './pages/cart.jsx';
+import ShoppingList from './pages/shoppingList.jsx';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import GlobalProvider from './context/globalProvider.jsx';
+
 
 function App() {
   return (
+    <GlobalProvider>
     <BrowserRouter>
       <div className='App'>
         <Navbar />
@@ -25,11 +29,13 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={ <Cart/> } />
+          <Route path="/list" element={ <ShoppingList/> } />
         </Routes>
 
         <Footer />
       </div>
     </BrowserRouter>
+    </GlobalProvider>
   );
 }
 
