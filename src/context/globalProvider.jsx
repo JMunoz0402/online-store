@@ -6,8 +6,11 @@ function GlobalProvider(props){
     const [cart, setCart] = useState([]);
     const [user,setUser] = useState({name: "Jesus",id:123445});
 
-    function addToCart(){
-        console.log("Adding to cart...");
+    function addToCart(prod){
+        // add prod to cart state variable
+        let copy = [...cart];
+        copy.push(prod);
+        setCart(copy);
     }
 
     function removeFromCart(){
@@ -15,7 +18,7 @@ function GlobalProvider(props){
     }
 
     function clearCart(){
-        console.log("Cart cleared")
+        console.log("Cart cleared!")
     }
     return(
         <GlobalContext.Provider value={{

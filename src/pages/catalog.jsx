@@ -20,7 +20,7 @@ function Catalog() {
         // when the page loads
         loadData();
     }, []);
-
+    
     function onCategorySelected(category) {
         setSelectedCategory(category);
     }
@@ -44,7 +44,7 @@ function Catalog() {
             <div>
                 {catalog
                 .filter(prod => !selectedCategory || prod.category === selectedCategory)
-                .map(Prod => <Product data={prod} key={prod._id}></Product> )
+                .map(Prod => <Product data={Prod} key={Prod._id}></Product> )
                 }
             </div>
 

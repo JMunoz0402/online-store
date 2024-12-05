@@ -4,7 +4,19 @@ import GlobalContext from "../context/globalContext";
 import "./styles/navbar.css";
 
 function Navbar() {
-    const { user } = useContext(GlobalContext);
+    const { user }  = useContext(GlobalContext);
+    const cart = useContext(GlobalContext).cart;
+
+    function getProdCount() {
+        console.log("test", cart);
+        let total = 0;
+        for(let i=0; i<cart.length; i++){
+            let prod = cart[i];
+            total += prod.quantity;
+        }
+
+        return total;
+    }
 
     return (
         <div>
@@ -62,10 +74,10 @@ function Navbar() {
                         </ul>
                     </div>
                     <div className="btn btn-outline-light me-3">
-                        {user.id} - {user.name}
+                        {user.name}
                     </div>
-                    <Link className="btn btn-primary cart-button" to="/cart">
-                        Cart
+                    <Link className="btn btn-primary cart-button" to="/cart"><span class="badge text-bg-primary me-1">{getProdCount()}</span>
+                    View Cart
                     </Link>
                 </div>
             </nav>
