@@ -1,11 +1,16 @@
 import "./styles/admin.css"
 import { useState } from "react";
+
 function Admin() {
+
+    const [allCoupons,setAllCoupons] = useState([]);
 
     const [coupon, setCoupon] = useState({
         code:'', //not required but it helps 
         discount:''
     });
+
+    const[allProducts, setAllProducts] = useState([]);
     const[product, setProduct] = useState({
         title: "",
         category: "",
@@ -36,6 +41,9 @@ function Admin() {
 
     function saveCoupon(){
         console.log(coupon);
+        var copy = [...allCoupons];
+        copy.push(coupon);
+        setAllCoupons(copy);
     }
     
 
@@ -50,6 +58,9 @@ function Admin() {
 
     function saveProduct(){
         console.log(product);
+        var copy = [...allProducts];
+        copy.push(product);
+        setAllProducts(copy);
     }
 
     return (
@@ -83,6 +94,13 @@ function Admin() {
                 <div className='mb-5'>
                     <button className="btn btn-outline-dark" onClick={saveProduct}>Save Product</button>
                 </div>
+                    <ul className="product-list">
+                        {allProducts.map(prod => 
+                        <li>
+                            <img className="prod-img" src={prod.image} alt=""/>
+                            {prod.title} - ${parseFloat(prod.price).toFixed(2)}</li>)}
+
+                    </ul>
                 </div>
 
                 <div className="coupons form">
@@ -101,6 +119,10 @@ function Admin() {
                 <div className='mb-5'>
                     <button className="btn btn-outline-dark" onClick={saveCoupon}>Save Coupon</button>
                 </div>
+
+                <ul className='coupon-list'>
+                    {allCoupons.map(cp => <li className='coupon-item'>{cp.code} - {cp.discount}%</li>)}
+                </ul>
                 
                 </div>
             

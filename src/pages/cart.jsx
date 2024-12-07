@@ -19,30 +19,55 @@ function Cart() {
         return total.toFixed(2);
     }
 
+    function getOrderTotal() {
+        let total = 0;
+        for (let i = 0; i < cart.length; i++) {
+            let prod = cart[i];
+            let prodTotal = prod.quantity * prod.price;
+            total += prodTotal;
+        }
+       
+
+        return total.toFixed(2);
+
+    }
+
+
+
+
+
     return (
         <div className="cart page">
             <h1>Ready to finalize the order?</h1>
             <h3>You are 1 click away from your {getProdCount()} products</h3>
-
-            <div className="list">
-                {cart.map((prod) => (
-                    <div key={prod.id} className="prod-cart">
-                        <div className="prod-img">
-                            <img src={prod.image} alt={prod.title} />
+            <div className="parent">
+                <div className="list">
+                    {cart.map((prod) => (
+                        <div key={prod.id} className="prod-cart">
+                            <div className="prod-img">
+                                <img src={prod.image} alt={prod.title} />
+                            </div>
+                            <h5>{prod.title}</h5>
+                            <label>
+                                <span>Price:</span> ${prod.price.toFixed(2)}
+                            </label>
+                            <label>
+                                <span>Quantity:</span> {prod.quantity}
+                            </label>
+                            <label>
+                                <span>Total:</span> ${getProdTotal(prod)}
+                            </label>
+                            <button className="btn btn-sm btn-outline-danger">Remove</button>
                         </div>
-                        <h5>{prod.title}</h5>
-                        <label>
-                            <span>Price:</span> ${prod.price.toFixed(2)}
-                        </label>
-                        <label>
-                            <span>Quantity:</span> {prod.quantity}
-                        </label>
-                        <label>
-                            <span>Total:</span> ${getProdTotal(prod)}
-                        </label>
-                        <button className="btn btn-sm btn-outline-danger">Remove</button>
-                    </div>
-                ))}
+                    ))}
+                </div>
+
+                <div className="side">
+                    <h6>Total</h6>
+                    <h5>${getOrderTotal()}</h5>
+                    <hr />
+                    <button className="btn btn-primary">Pay Now</button>
+                </div>
             </div>
         </div>
     );

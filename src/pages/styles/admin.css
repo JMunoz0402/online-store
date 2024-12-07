@@ -57,3 +57,27 @@
 .admin .parent .form .btn-container button:hover {
     background-color: #005f54; 
 }
+
+.admin .coupon-list,
+.admin .product-list {
+    list-style: none;
+}
+
+.admin .coupon-list li,
+.admin .product-list li {
+    border: 1px solid #8e9599;
+    padding: 5px 20px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+}
+
+.admin .coupon-list li:hoover,
+.admin .product-list li:hoover {
+    border-color: tomato;
+    font-weight: 600;
+}
+
+.admin .product-list .prod-img {
+    height: 60px;
+    
+}
