@@ -1,46 +1,31 @@
 import "./styles/admin.css"
 import { useState } from "react";
+import dataService from "../services/dataService";
 
 function Admin() {
 
     const [allCoupons,setAllCoupons] = useState([]);
 
     const [coupon, setCoupon] = useState({
-        code:'', //not required but it helps 
-        discount:''
+        
     });
 
     const[allProducts, setAllProducts] = useState([]);
     const[product, setProduct] = useState({
-        title: "",
-        category: "",
-        image: "",
-        price: ""
+        
     })
     
 
     function handleCouponInput(e){
-        //console.log("value change",e.target.value);
-        const val = e.target.value;
-        const name = e.target.name;
-
         
-
-            // rule for state variables (if array or obj -> 3 steps)
-            //create a copy
-            let copy = {...coupon}
-            //modify the copy
-            if(name === "discount"){
-                copy.discount = val;
-            }else{
-                copy.code = val;
-            }
-            //set the copy back
-            setCoupon(copy);
         }
 
-    function saveCoupon(){
+    async function saveCoupon(){
         console.log(coupon);
+        
+        dataService.saveCoupon(coupon);
+
+
         var copy = [...allCoupons];
         copy.push(coupon);
         setAllCoupons(copy);
@@ -56,12 +41,34 @@ function Admin() {
         setProduct(copy);
     }
 
-    function saveProduct(){
+    async function saveProduct(){
         console.log(product);
+
+        let fixedProd = {...product};
+        fixedProd.price = parseFloat(fixedProd.price);
+        let x = await dataService.saveProduct(fixedProd);
+        console.log(x);
+
         var copy = [...allProducts];
         copy.push(product);
         setAllProducts(copy);
     }
+
+    async function loadProducts(){
+        let prods = await dataService.getProducts();
+        setAllProducts(prods);
+
+    }
+
+    async function loadCoupons(){
+        let cps = await dataService.getCoupons();
+        setAllCoupons(cps);
+    }
+
+
+    useEffect(() => {
+        loadProducts();
+    }, []);
 
     return (
         <div className="admin page">
@@ -132,4 +139,3 @@ function Admin() {
 }
 
 export default Admin;
-

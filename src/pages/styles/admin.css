@@ -3,6 +3,8 @@
     padding: 30px;
     font-family: Arial, sans-serif; 
     color: #333; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
+    border-radius: 8px; 
 }
 
 .admin .parent {
@@ -18,7 +20,13 @@
     border: 1px solid #d1d5db; 
     border-radius: 8px; 
     padding: 20px;
-    
+    transition: box-shadow 0.3s ease, transform 0.3s ease; 
+}
+
+.admin .parent .products:hover,
+.admin .parent .coupons:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
 }
 
 .admin .parent .form {
@@ -27,6 +35,12 @@
     padding: 20px;
     background-color: #ffffff;
     text-align: left;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; 
+}
+
+.admin .parent .form:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
 }
 
 .admin .parent .form h3 {
@@ -36,6 +50,7 @@
     padding: 10px 0;
     margin-bottom: 20px;
     border-bottom: 2px solid #e0e0e0; 
+    font-size: 18px; 
 }
 
 .admin .parent .form .btn-container {
@@ -51,7 +66,7 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
-    
+    transition: background-color 0.3s ease; 
 }
 
 .admin .parent .form .btn-container button:hover {
@@ -61,23 +76,29 @@
 .admin .coupon-list,
 .admin .product-list {
     list-style: none;
+    padding-left: 0; 
+    margin: 0; 
 }
 
 .admin .coupon-list li,
 .admin .product-list li {
     border: 1px solid #8e9599;
-    padding: 5px 20px;
-    margin-bottom: 6px;
+    padding: 10px 20px;
+    margin-bottom: 10px; 
     border-radius: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease; 
 }
 
-.admin .coupon-list li:hoover,
-.admin .product-list li:hoover {
+.admin .coupon-list li:hover,
+.admin .product-list li:hover {
+    background-color: #f7f7f7; 
     border-color: tomato;
     font-weight: 600;
 }
 
 .admin .product-list .prod-img {
     height: 60px;
-    
+    object-fit: cover; 
+    border-radius: 4px; 
+    margin-right: 10px; 
 }

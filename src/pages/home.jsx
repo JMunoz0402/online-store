@@ -10,6 +10,13 @@ function Home() {
                 <img src="/images/home.jpeg" alt="Welcome to Express Store" className="image" />
                 <img src="/images/body.jpeg" alt="Groceries and Essentials" className="image" />
             </div>
+
+            <div className="store-info">
+                <h2>Store Information</h2>
+                <p><strong>Address:</strong> 123 Market St, San Diego</p>
+                <p><strong>Operating Hours:</strong> Mon-Sat, 9:00 AM - 8:00 PM</p>
+                <p><strong>Contact Number:</strong> +123 456 7890</p>
+            </div>
         </div>
     );
 }

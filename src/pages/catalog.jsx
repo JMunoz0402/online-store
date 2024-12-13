@@ -8,8 +8,8 @@ function Catalog() {
     const [categories, setCatagories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("");
 
-    function loadData() {
-        let productList = DataService.getProducts();
+    async function loadData() {
+        let productList = await DataService.getProducts();
         setCatalog(productList);
 
         let categoriesList = DataService.getCategories();
